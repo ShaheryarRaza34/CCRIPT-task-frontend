@@ -19,7 +19,7 @@ const HomeScreen = () => {
       <AddTask />
       <div className="todo-content">
         {data?.tasks.map((task) => (
-          <Task task={task.task} id={task.id} />
+          <Task key={task.task} task={task.task} id={task.id} />
         ))}
       </div>
 
