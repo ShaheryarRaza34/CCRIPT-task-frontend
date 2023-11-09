@@ -11,6 +11,8 @@ export type AddResponse = {
 export type Item = {
   id: number;
   task: string;
+  completed: boolean;
+  createdAt: Date;
 };
 
 export type ListResponse = {

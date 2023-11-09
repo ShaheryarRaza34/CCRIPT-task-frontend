@@ -129,11 +129,31 @@
 import styled from "styled-components";
 
 export const Home = styled.div`
-  background: #fff;
-  max-width: 400px;
   width: 100%;
-  margin: 120px auto;
-  padding: 25px;
-  border-radius: 5px;
-  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+  background-image: url("/images/image.webp");
+  object-fit: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Logo = styled.div`
+  margin: 20px;
+  height: 200px;
+  width: 200px;
+  background-size: cover;
+  z-index: 1;
+  border-radius: 50%;
+  background-image: url("/images/profile.jpg");
+`;
+
+export const Tasks = styled.div`
+  width: 400px;
+  height: 500px;
+  background-color: #ffdfdf;
+  display: inline;
+  padding: 20px;
+  border-radius: 10%;
 `;

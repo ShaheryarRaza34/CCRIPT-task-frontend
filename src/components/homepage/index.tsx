@@ -1,11 +1,12 @@
 import React from "react";
 // import "./HomePage.css";
-import Task from "../Task";
+import Task from "../tasks";
 
-import AddTask from "../AddTask";
+import AddTask from "../addtask/index";
 
-import { Home } from "./styled";
+import { Home, Logo, Tasks } from "./styled";
 import { useTasksList } from "@/providers/api";
+import HeaderDiv from "../header/index";
 
 const HomeScreen = () => {
   const { data, isLoading, error } = useTasksList();
@@ -15,21 +16,28 @@ const HomeScreen = () => {
 
   return (
     <Home>
-      <header>ToDoApp</header>
-      <AddTask />
-      <div className="todo-content">
-        {data?.tasks.map((task) => (
-          <Task key={task.task} task={task.task} id={task.id} />
-        ))}
-      </div>
+      <Logo />
 
-      <div className="footer">
-        <span>
-          You have <span className="pendingTasks">{data?.tasks.length}</span>
-          pending tasks
-        </span>
-        <button>Clear All</button>
-      </div>
+      <AddTask />
+      <HeaderDiv />
+      <Tasks>
+        {data?.tasks.length ? (
+          data?.tasks.map((task) => (
+            <Task
+              key={task.task}
+              task={task.task}
+              id={task.id}
+              completed={task.completed}
+              createdAt={task.createdAt}
+            />
+          ))
+        ) : (
+          <span>
+            You have <span>{data?.tasks.length}</span>
+            pending tasks
+          </span>
+        )}
+      </Tasks>
     </Home>
   );
 };
